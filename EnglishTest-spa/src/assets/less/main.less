@@ -1,0 +1,307 @@
+@charset "utf-8";
+/* CSS Document */
+
+/************************************************************************************************************************
+                                                    global
+*************************************************************************************************************************/
+/* CSS Document */
+html, body, div, p, span, object, iframe, h1, h2, h3, h4, h5, h6, blockquote, q, pre, a, abbr, acronym, address, cite, del, em, img, strong, sub, sub, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, nav, output, ruby, section, summary, time, mark, audio, video ,input,textarea{ margin:0; padding:0; border:0; font-size:100%; line-height:1.5;font:inherit; vertical-align:top; font-family:Helvetica,Arial,sans-serif;}
+
+a{ text-decoration:none;}
+ol, ul { list-style:none; }
+table { border-collapse:collapse; border-spacing:0; }
+address, caption, cite, em, strong, th { font-style:normal; }
+sup { vertical-align:text-top; }
+sub { vertical-align:text-bottom; }
+del { text-decoration:line-through; }
+button { border:0; background:none; cursor: pointer; }
+:focus { outline:0; }
+//清除苹果默认样式
+input,button,select{  -webkit-appearance: none;  border-radius: 0;  background: none;}
+
+/******************
+      变量
+*******************/
+@r:32rem;
+@mainColor:#9b9b9b;    //主色系
+@fscolor:#333;      //字体颜色
+@fscolor2:#999;      //字体颜色
+@fsz:14/@r;            //字号
+@images: "../images";  //img路径
+@error:#990000;         //错误提示颜色
+@mdWidth:280;           //响应式中间部分宽度
+@transTime:0.3;         //transition持续时间
+
+.mar{ width:@mdWidth/@r; margin:0 auto;}
+.fwb{font-weight: bold;}
+.fscolor{color: @fscolor;}
+.texa{ text-align: center;}
+.aftercl{content: '';display: block;clear: both;visibility: hidden;}
+.fl{float: left;}
+.fr{float: right;}
+.cl { clear:both; }
+.bor(@bc:@mainColor){border: 1px solid @bc;border-radius: 4/@r;}
+.hlh(@height:50/@r){height: @height;line-height: @height;}
+.w { width:100%; }
+.wHalf { width:50%; }
+.h { height:100%; }
+.hHalf { height:50%; }
+.oh { overflow:hidden; }
+.trans{
+  -webkit-transition: 0.3s ease all;
+  -moz-transition: 0.3s ease all;
+  -ms-transition: 0.3s ease all;
+  -o-transition: 0.3s ease all;
+  transition: 0.3s ease all;
+}
+
+
+
+/******************
+    全局设置
+******************/
+html,body{
+  min-height: 100%;
+  position: absolute;
+  width: 100%;
+}
+#root{
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+   background: url('@{images}/index.jpg') repeat center top;
+   overflow: hidden;
+
+}
+.bottom-submit-btn{
+  text-align: center;
+  border: 1/@r solid #689db9;
+  width: 280/@r;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin: 10/@r auto 40/@r;
+  input{
+    color: #01b6e1;
+    width: 100%;
+    display: block;    
+    margin: 0 auto;
+    line-height: 1.5;
+    background: rgba(255,255,255,0.8);
+    border-radius: 10px;
+    font-size: 24/@r;
+
+  }
+}
+
+.back-btn{
+  width: 100%;
+  height: 30/@r;
+  background: rgba(0,0,0,0.2);
+  display:flex;
+  justify-content:left;
+  align-items: center;
+  margin-bottom: 10/@r;
+  img{
+    width: 20/@r;
+  }
+}
+
+.fade-leave-active{
+  transform:translateX(-100%);
+  opacity:0.5;
+}
+.fade-leave-active{
+  transition:all 0.2s ease;
+}
+.fade-enter{
+  transform:translateX(100%);
+  opacity:0.5;
+}
+.fade-enter-active{
+  transition:all 0.5s ease;
+  
+}
+
+
+
+
+/******
+banner
+*********/
+#banner{
+  
+  width: 100%;
+  height: 200/@r;
+  color: #fff;
+  background: url("@{images}/banner-bg2.png") no-repeat center bottom;
+  background-size: 100% auto;
+  h2{
+    padding:50/@r 20/@r 10/@r;
+    font-size: 16/@r;
+    .texa;
+  }
+  p{
+    padding:0 20/@r;
+    font-size: 22/@r;
+    .texa;
+  }
+
+}
+
+/************
+  表格部分
+*************/
+.w-65{
+  width:65/@r;
+}
+.w-130{
+  width:130/@r;
+}
+.w-140{
+  width:140/@r;
+}
+.w-205{
+  width:205/@r
+}
+.mr-10{
+  margin-right:10/@r;
+}
+
+
+
+#basic-form-container{
+  padding: 15/@r 0;
+
+  li{
+      margin-bottom: 5/@r;
+      &:after{
+        .aftercl;
+      }
+
+      &>div{
+        float: left;
+        background: #fff;
+        &>div{
+          box-sizing:border-box;
+          border: 1px solid @mainColor;
+          line-height: 30/@r;
+          padding:0 6/@r;
+
+        }
+      }
+
+      select,input{
+        display: block;
+        width: 100%;
+        border: none;
+        font-size: 15/@r;
+        color:@fscolor2;
+      }
+
+      select{
+        height: 30/@r;
+        line-height: 30/@r;
+        padding: 0;
+        option{
+          color:@fscolor2;
+        }
+      }
+
+      input{
+        height: 22/@r;
+        line-height: 22/@r;
+        padding: 4/@r 0;
+      }
+
+      ::-webkit-input-placeholder { color: @fscolor2;}
+      :-moz-placeholder { color: @fscolor2;}
+      ::-moz-placeholder {  color: @fscolor2;}
+      :-ms-input-placeholder { color: @fscolor2;}
+
+      .checkInput.error{
+        border: 1/@r solid @error;
+      }
+    }
+
+  p{
+    font-size: 12/@r;
+    color: @fscolor;
+    text-align: right;
+    padding-top: 6/@r;
+  }
+  
+
+}
+
+
+
+
+
+
+/************************************
+          题目
+**********************************/
+
+.question-list{
+  &>ul>li{
+    margin-bottom: 8/@r;
+    padding: 15/@r 0;
+    font-size:12/@r;
+    border-bottom: 1px solid #fff;
+  }
+
+}
+.options{
+  ul{
+    &:after{
+      .aftercl;
+    }
+    li{
+      width: 50%;
+      float: left;
+      margin-bottom: 5/@r;
+      
+      input{
+        display: none;
+      }
+
+      input+label{
+        display: block;
+        padding-left: 25px;
+        background: url("@{images}/img11-9-3.jpg") no-repeat left center;
+        background-size: 15/@r;
+      }
+      
+       input:checked + label{
+          background: url("@{images}/img11-9-3s.jpg") no-repeat left center;
+          background-size: 15/@r;
+      } 
+
+
+    }
+  }
+  &.li-whole ul li{
+    width: 100%;
+
+  }
+}
+.question{
+  margin-bottom: 6/@r;
+}
+
+
+.select-after{
+  position: relative;
+  &:before{
+    display: block;
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: url("@{images}/img-11-12-img4.png") no-repeat center;
+    background-size: 100% 100%;
+    right: 5/@r;
+    top: 10/@r;
+  }
+}
+
